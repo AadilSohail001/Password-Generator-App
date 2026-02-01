@@ -1,0 +1,149 @@
+.option-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-md);
+  background: var(--color-bg-input);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+  cursor: pointer;
+}
+
+.option-toggle:hover {
+  background: rgba(0, 240, 255, 0.05);
+  border-color: var(--color-accent);
+  transform: translateX(4px);
+}
+
+.toggle-label {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  cursor: pointer;
+  flex: 1;
+}
+
+.toggle-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--color-bg-card);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  transition: all var(--transition-base);
+  text-shadow: 0 0 10px var(--color-accent-glow);
+}
+
+.option-toggle:hover .toggle-icon {
+  border-color: var(--color-accent);
+  transform: scale(1.1);
+  box-shadow: 0 0 16px var(--color-accent-glow);
+}
+
+.toggle-text {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  transition: color var(--transition-base);
+}
+
+.option-toggle:hover .toggle-text {
+  color: var(--color-accent);
+}
+
+.toggle-checkbox {
+  display: none;
+}
+
+.toggle-switch {
+  position: relative;
+  width: 52px;
+  height: 28px;
+  background: var(--color-bg-card);
+  border: 2px solid var(--color-border);
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  flex-shrink: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  background: var(--color-text-muted);
+  border-radius: 50%;
+  transition: all var(--transition-base);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-checkbox:checked + .toggle-switch {
+  background: linear-gradient(135deg, var(--color-accent) 0%, #0099ff 100%);
+  border-color: var(--color-accent);
+  box-shadow: 0 0 12px var(--color-accent-glow);
+}
+
+.toggle-checkbox:checked + .toggle-switch .toggle-slider {
+  transform: translateX(24px);
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.toggle-switch:hover {
+  border-color: var(--color-accent);
+}
+
+.toggle-checkbox:checked + .toggle-switch:hover {
+  box-shadow: 0 0 20px var(--color-accent-glow);
+}
+
+/* Add active state animation */
+.toggle-checkbox:checked + .toggle-switch .toggle-slider {
+  animation: toggleBounce 0.4s ease;
+}
+
+@keyframes toggleBounce {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(28px); }
+  100% { transform: translateX(24px); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .option-toggle {
+    padding: var(--spacing-sm);
+  }
+
+  .toggle-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  .toggle-text {
+    font-size: 0.875rem;
+  }
+
+  .toggle-switch {
+    width: 48px;
+    height: 26px;
+  }
+
+  .toggle-slider {
+    width: 18px;
+    height: 18px;
+  }
+
+  .toggle-checkbox:checked + .toggle-switch .toggle-slider {
+    transform: translateX(22px);
+  }
+}
