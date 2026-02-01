@@ -129,3 +129,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ---
 
 Built with ❤️ using React and modern web technologies
+
+## Author
+Aadil Sohail
